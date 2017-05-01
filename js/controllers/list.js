@@ -9,13 +9,13 @@
         var vm = this;
 
         vm.quizMetrics = quizMetrics;
-        vm.activeTurtle = {};
-        vm.changeActiveTurtle = changeActiveTurtle;
+        vm.activeTweet = {};
+        vm.changeActiveTweet = changeActiveTweet;
         vm.activateQuiz = activateQuiz;
         vm.search = "";
 
-        function changeActiveTurtle(index){
-            vm.activeTurtle = index;
+        function changeActiveTweet(index){
+            vm.activeTweet = index;
         }
 
         function activateQuiz(){
