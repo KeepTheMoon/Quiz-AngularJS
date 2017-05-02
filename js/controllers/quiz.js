@@ -8,6 +8,7 @@
 
     function QuizController(quizMetrics, DataService){
         var vm = this;
+        var timer;
 
         vm.quizMetrics = quizMetrics;
         vm.dataService = DataService;
@@ -22,6 +23,7 @@
         var numQuestionsAnswered = 0;
 
         function setActiveQuestion(index){
+
             if(index === undefined){
                 var breakOut = false;
 
@@ -45,6 +47,7 @@
 
         function questionAnswered(){
             var quizLength = DataService.quizQuestions.length;
+            timer = setTimeout(timer, 30000);
 
             if(DataService.quizQuestions[vm.activeQuestion].selected !== null){
                 numQuestionsAnswered++;
@@ -65,6 +68,10 @@
 
         function selectAnswer(index){
             DataService.quizQuestions[vm.activeQuestion].selected = index;
+        }
+        function timer(){
+          alert("trop tard");
+          questionAnswered();
         }
 
         function finaliseAnswers(){
