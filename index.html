@@ -85,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-warning" ng-click="quiz.questionAnswered()"onclick="t=0;">Continuer</button>
+                    <button class="btn btn-warning" ng-click="quiz.questionAnswered()"onclick="t=30;">Continuer</button>
                 </div>
 
                 <div class="well well-sm" ng-show="quiz.finalise">
@@ -171,9 +171,11 @@
 
     <script>
     var myVar = setInterval(function(){ myTimer() }, 1000);
-    var t=0;
+    var t=30;
     function myTimer() {
-        document.getElementById("timer").innerHTML = t++;
+      if (t>=0){
+        document.getElementById("timer").innerHTML = t--;
+      }
     }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
