@@ -9,7 +9,7 @@
     function QuizController(quizMetrics, DataService){
         var vm = this;
         var timer;
-
+        
         vm.quizMetrics = quizMetrics;
         vm.dataService = DataService;
         vm.questionAnswered = questionAnswered;
@@ -19,6 +19,7 @@
         vm.activeQuestion = 0;
         vm.error = false;
         vm.finalise = false;
+        vm.time = 0;
 
         var numQuestionsAnswered = 0;
 
@@ -45,10 +46,9 @@
             }
         }
 
-        function questionAnswered(){
+        function questionAnswered($interval){
             var quizLength = DataService.quizQuestions.length;
-            timer = setTimeout(timer, 30000);
-
+            timer = setTimeout(timer,30000);
             if(DataService.quizQuestions[vm.activeQuestion].selected !== null){
                 numQuestionsAnswered++;
                 if(numQuestionsAnswered >= quizLength){
@@ -71,6 +71,8 @@
         }
         function timer(){
           alert("trop tard");
+          questionAnswered();
+          selectAnswer(1);
           questionAnswered();
         }
 

@@ -68,7 +68,7 @@
                     Erreur! Vous n'avez pas répondu à toutes les questions!
                     <button class="close" ng-click="quiz.error = false">&times</button>
                 </div>
-                <h3>Question:</h3><div>timer : {{time}} sec</div>
+                <h3>Question:</h3><div>Timer : <div id="timer"></div> sec</div>
                 <div class="well well-sm" ng-hide="quiz.finalise">
                     <div class="row">
                         <div class="col-xs-12">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-warning" ng-click="quiz.questionAnswered()">Continuer</button>
+                    <button class="btn btn-warning" ng-click="quiz.questionAnswered()"onclick="t=0;">Continuer</button>
                 </div>
 
                 <div class="well well-sm" ng-show="quiz.finalise">
@@ -169,6 +169,13 @@
         </div>
     </div>
 
+    <script>
+    var myVar = setInterval(function(){ myTimer() }, 1000);
+    var t=0;
+    function myTimer() {
+        document.getElementById("timer").innerHTML = t++;
+    }
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
